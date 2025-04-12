@@ -12,6 +12,7 @@ class Tpworld : ModInitializer {
         CommandRegistrationCallback.EVENT.register { dispatcher, registry, environment ->
             dispatcher.register(
                 literal("tpworld")
+                    .requires { it.hasPermissionLevel(2) }
                     .then(
                         argument("world", DimensionArgumentType.dimension())
                             .executes { context ->
